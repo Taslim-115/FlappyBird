@@ -1,0 +1,10 @@
+/* styles.css */
+.play-button {
+    -fx-font-size: 20;
+    -fx-background-color: #49fc03;
+    -fx-text-fill: white;
+}
+
+.play-button:hover {
+    -fx-background-color: #55b52f;
+}
