@@ -47,20 +47,21 @@ public class MainMenu implements Updatable {
         btnPlay.setLayoutX((double) (this.width - width) / 2);
         btnPlay.setLayoutY((double) (this.height - height) / 2);
 
-        btnPlay.setMinWidth(width-20);
-        btnPlay.setMinHeight(height-20);
+        btnPlay.setMinWidth(width - 20);
+        btnPlay.setMinHeight(height - 20);
 
 //        btnPlay.setFont(Font.font(20));
 //        btnPlay.setStyle("-fx-background-color: #49fc03;");
 //        //btnPlay.setStyle("-fx-color: #49fc03;");
 //        btnPlay.setStyle("-fx-text-fill: white;");
-       // btnPlay.setStyle("-fx-font-size: 20; -fx-background-color: #49fc03; -fx-text-fill: white;");
+        // btnPlay.setStyle("-fx-font-size: 20; -fx-background-color: #49fc03; -fx-text-fill: white;");
 
 
         // set action on Play button
-//        btnPlay.setOnAction(e -> {
-//
-//        });
+        btnPlay.setOnAction(e -> {
+        Play play = new Play(sm);
+        sm.setScene(play);
+        });
 //
 //        // Hover effect
 //        btnPlay.setOnMouseEntered((MouseEvent e) -> {
@@ -84,8 +85,8 @@ public class MainMenu implements Updatable {
         btnGuide.setLayoutX((this.width - width) / 2);
         btnGuide.setLayoutY((this.height - height) / 2 + (height + 30));
 
-        btnGuide.setMinWidth(width-20);
-        btnGuide.setMinHeight(height-20);
+        btnGuide.setMinWidth(width - 20);
+        btnGuide.setMinHeight(height - 20);
 
 //        btnGuide.setFont(Font.font(20));
 //        btnGuide.setStyle("-fx-background-color: #49fc03;");
@@ -111,7 +112,7 @@ public class MainMenu implements Updatable {
         btnGuide.getStyleClass().add("play-button");
 
 
-        root.getChildren().addAll(canvas,btnPlay,btnGuide);
+        root.getChildren().addAll(canvas, btnPlay, btnGuide);
 
     }
 
