@@ -17,6 +17,12 @@ public class Sprite {
     private double width;
     private double height;
 
+    private GraphicsContext gc;
+
+    public void setGc(GraphicsContext gc) {
+        this.gc = gc;
+    }
+
     public Sprite() {
         this.positionX = 0;
         this.positionY = 0;
@@ -25,11 +31,15 @@ public class Sprite {
 
     }
 
-    public Sprite(double positionX, double positionY, double velocityX, double velocityY) {
+
+    public Sprite(double positionX, double positionY, double velocityX, double velocityY, double width, double height, Image image) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
+        this.width = width;
+        this.height = height;
+        this.image = image;
 
     }
 
@@ -66,7 +76,7 @@ public class Sprite {
         return width;
     }
 
-    public double getHidth() {
+    public double getHeight() {
         return height;
     }
 
@@ -81,9 +91,9 @@ public class Sprite {
         this.velocityY += y;
     }
 
-    public void render(GraphicsContext gc, String filePath) {
-        image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
-        gc.drawImage(image, positionX, positionY, width, height);
+    public void render() {
+        //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+        gc.drawImage(image, positionX, positionY, 50, 45);
     }
 
     public Rectangle2D getBoundary() {
