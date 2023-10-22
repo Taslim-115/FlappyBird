@@ -16,6 +16,7 @@ public class Play implements Updatable {
     private int width, height;
     private GraphicsContext gc;
     private Image backgroundImage ;
+    private Bird bird;
 
     public Play(SceneManager sm) {
 
@@ -35,7 +36,12 @@ public class Play implements Updatable {
         Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
 
         //Draw the backgroundImage on the canvas
+
+
         gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
+
+        // Bring the bird
+         bird = new Bird(gc);
 
         root.getChildren().add(canvas);
 
