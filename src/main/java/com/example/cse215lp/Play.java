@@ -34,15 +34,16 @@ public class Play implements Updatable {
 
         //Load the background Image for Play
         String filePath = "/com/example/cse215lp/playBackground.png";
-        Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+         backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
 
         //Draw the backgroundImage on the canvas
 
 
-        gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
+       // gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
 
         // Bring the bird
          bird = new Bird(gc);
+        bird.setImage(bird.getFilePath() );
 
         root.getChildren().add(canvas);
 
@@ -54,6 +55,7 @@ public class Play implements Updatable {
     @Override
     public void update(){
 
+        gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
 
         bird.update();
        bird.render(gc);

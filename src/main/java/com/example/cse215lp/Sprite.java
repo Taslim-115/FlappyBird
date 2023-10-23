@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Sprite {
 
     private Image image;
+    //private String filePath;
 
     private double positionX;
     private double positionY;
@@ -32,14 +33,14 @@ public class Sprite {
     }
 
 
-    public Sprite(double positionX, double positionY, double velocityX, double velocityY, double width, double height, Image image) {
+    public Sprite(double positionX, double positionY, double velocityX, double velocityY, double width, double height) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
         this.width = width;
         this.height = height;
-        this.image = image;
+       // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
 
     }
 
@@ -48,6 +49,9 @@ public class Sprite {
         this.width = image.getWidth();
         this.height = image.getHeight();
 
+    }
+    public void setImage(String filePath){
+        image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
     }
 
     public void reseizeImage(String filepath, int width, int height) {
