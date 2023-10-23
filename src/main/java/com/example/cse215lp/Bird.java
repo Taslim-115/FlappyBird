@@ -7,8 +7,8 @@ import java.util.Objects;
 public class Bird extends Sprite {
 
     //private Sprite birdSprite;
-    private Sprite birdSprite;
-    public String filePath = "/com/example/cse215lp/bird1.png";
+   // private Sprite birdSprite;
+    private String filePath = "/com/example/cse215lp/bird1.png";
 
 
     public String getFilePath() {
@@ -18,7 +18,7 @@ public class Bird extends Sprite {
     public Bird(GraphicsContext gc) {
 
 
-        super(70, 200, 5, 5, 50, 45);
+        super(70, 200, 5, 3, 50, 45);
         //bird.setImage();
         // birdSprite.setPositionXY(positionX, positionY);
 
@@ -29,6 +29,6 @@ public class Bird extends Sprite {
     }
 
     public void update(){
-      this.setPositionY(getPositionY() + getVelocityY());
+      this.setPositionY(this.getPositionY() + this.getVelocityY());
     }
 }
