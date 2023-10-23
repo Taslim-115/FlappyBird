@@ -35,6 +35,8 @@ public class SceneManager {
     public void setDimension(int width, int height) {
         this.width = width;
         this.height = height;
+        window.setWidth(width);
+        window.setHeight(height);
 
     }
 

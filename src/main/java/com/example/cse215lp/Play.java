@@ -53,6 +53,8 @@ public class Play implements Updatable {
     @Override
     public void update(){
 
+
+        bird.update();
     }
 
     @Override

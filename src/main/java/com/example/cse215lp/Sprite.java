@@ -85,6 +85,9 @@ public class Sprite {
         this.positionY = positionY;
     }
 
+    public void setPositionY(double positionY) {
+        this.positionY = positionY;
+    }
 
     public void addVelocity(double x, double y) {
         this.velocityX += x;

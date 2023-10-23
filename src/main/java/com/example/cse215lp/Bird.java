@@ -11,11 +11,16 @@ public class Bird extends Sprite {
 
 
     public Bird(GraphicsContext gc) {
-        birdSprite = new Sprite(70, 200, 0, 0, 50, 45, new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath))));
+        birdSprite = new Sprite(70, 200, 5, 5, 50, 45, new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath))));
         //bird.setImage();
         // birdSprite.setPositionXY(positionX, positionY);
+
         birdSprite.setGc(gc);
         birdSprite.render();
 
+    }
+
+    public void update(){
+      birdSprite.setPositionY(getPositionY() + getVelocityY());
     }
 }
