@@ -6,7 +6,8 @@ import java.util.Objects;
 
 public class Bird extends Sprite {
 
-    private Sprite birdSprite;
+    //private Sprite birdSprite;
+    public Sprite birdSprite;
     private String filePath = "/com/example/cse215lp/bird1.png";
 
 

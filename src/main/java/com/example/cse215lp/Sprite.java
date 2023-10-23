@@ -99,6 +99,12 @@ public class Sprite {
         gc.drawImage(image, positionX, positionY, 50, 45);
     }
 
+    public void render(GraphicsContext gc) {
+        //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+        this.gc = gc;
+        gc.drawImage(image, positionX, positionY, 50, 45);
+    }
+
     public Rectangle2D getBoundary() {
         return new Rectangle2D(positionX, positionY, width, height);
     }

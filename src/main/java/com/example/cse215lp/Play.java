@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import p1.SceneManager;
 import p1.Updatable;
 
+
 import java.util.Objects;
 
 public class Play implements Updatable {
@@ -55,6 +56,7 @@ public class Play implements Updatable {
 
 
         bird.update();
+       bird.render(gc);
     }
 
     @Override
