@@ -4,14 +4,17 @@ import java.util.List;
 
 public class Pipe extends Sprite {
 
-     public boolean isFaceUp = true;
+     public static boolean isFaceUp = true;
 
        private String downPipePath = "/com/example/cse215lp/down_pipe.png";
       private String upPipePath = "/com/example/cse215lp/up_pipe.png";
 
      public String getPipeFilePath() {
-          String filePath = isFaceUp ? upPipePath : downPipePath;
+          String filePath = isFaceUp ? downPipePath : upPipePath;
+
+
           isFaceUp = !(isFaceUp);
+          System.out.println(isFaceUp);
           return filePath;
 
 
