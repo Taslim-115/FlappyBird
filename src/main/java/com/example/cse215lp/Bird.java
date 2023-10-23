@@ -2,12 +2,13 @@ package com.example.cse215lp;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+
 import java.util.Objects;
 
 public class Bird extends Sprite {
 
     //private Sprite birdSprite;
-   // private Sprite birdSprite;
+    // private Sprite birdSprite;
     private String filePath = "/com/example/cse215lp/bird1.png";
 
 
@@ -28,7 +29,7 @@ public class Bird extends Sprite {
 
     }
 
-    public void update(){
-      this.setPositionY(this.getPositionY() + this.getVelocityY());
+    public void update() {
+        this.setPositionY(this.getPositionY() + this.getVelocityY());
     }
 }

@@ -59,8 +59,8 @@ public class MainMenu implements Updatable {
 
         // set action on Play button
         btnPlay.setOnAction(e -> {
-        Play play = new Play(sm);
-        sm.setScene(play);
+            Play play = new Play(sm);
+            sm.setScene(play);
         });
 //
 //        // Hover effect

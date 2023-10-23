@@ -23,8 +23,7 @@ public class Play implements Updatable {
     private Pipe pipe;
     private List<Pipe> pipes = new ArrayList<>();
 
-    public Play(SceneManager sm)
-    {
+    public Play(SceneManager sm) {
 
 
         this.width = sm.getWidth();

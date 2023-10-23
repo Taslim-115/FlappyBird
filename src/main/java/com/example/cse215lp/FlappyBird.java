@@ -5,9 +5,9 @@ import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
 import p1.SceneManager;
 
-public class FlappyBird extends Application{
+public class FlappyBird extends Application {
 
-    public void start(Stage window){
+    public void start(Stage window) {
         //Initialise Scene Manager
         SceneManager sm = new SceneManager(window);
         sm.setTitle("FlappyBird");
@@ -21,18 +21,17 @@ public class FlappyBird extends Application{
 
 
         // Game Loop
-        new AnimationTimer()
-        {
+        new AnimationTimer() {
             @Override
-            public void handle(long currentTime)
-            {
+            public void handle(long currentTime) {
                 sm.update();
             }
         }.start();
 
         window.show();
     }
-    public static void main(String []args){
+
+    public static void main(String[] args) {
         launch(args);
     }
 }

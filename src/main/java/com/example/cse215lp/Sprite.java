@@ -22,7 +22,6 @@ public class Sprite {
     private GraphicsContext gc;
 
 
-
     public Sprite() {
         this.positionX = 0;
         this.positionY = 0;
@@ -30,6 +29,7 @@ public class Sprite {
         this.velocityY = 0;
 
     }
+
     public Sprite(double positionX, double positionY, double velocityX, double velocityY, double width, double height) {
         this.positionX = positionX;
         this.positionY = positionY;
@@ -40,9 +40,11 @@ public class Sprite {
         // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
 
     }
+
     public double getPositionX() {
         return positionX;
     }
+
     public void setPositionX(double positionX) {
         this.positionX = positionX;
     }
@@ -55,12 +57,11 @@ public class Sprite {
     public void setHeight(double height) {
         this.height = height;
     }
+
     public void setPositionXY(double positionX, double positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
     }
-
-
 
 
     public double getPositionY() {
@@ -93,20 +94,19 @@ public class Sprite {
     }
 
 
-
-
     public void setImage(Image image) {
         this.image = image;
         this.width = image.getWidth();
         this.height = image.getHeight();
 
     }
-    public void setImage(String filePath){
+
+    public void setImage(String filePath) {
         image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
     }
 
-    public void setImage(List<Pipe> pipes){
-        for(Pipe pIpe : pipes){
+    public void setImage(List<Pipe> pipes) {
+        for (Pipe pIpe : pipes) {
             pIpe.setImage(pIpe.getPipeFilePath());
         }
     }
@@ -115,9 +115,6 @@ public class Sprite {
         Image toReturn = new Image(filepath, width, height, false, false);
         setImage(toReturn);
     }
-
-
-
 
 
     public void render() {
@@ -130,12 +127,12 @@ public class Sprite {
         this.gc = gc;
         gc.drawImage(image, positionX, positionY, 50, 45);
     }
+
     public void renderP(GraphicsContext gc) {
         //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
         this.gc = gc;
         gc.drawImage(image, positionX, positionY, width, height);
     }
-
 
 
     public void render(List<Pipe> pipes, GraphicsContext gc) {
