@@ -62,26 +62,54 @@ public class Pipe extends Sprite {
         int randomHeight;
 
 
-        for (int i = 0; i < pipes.size(); i += 2) {
-            // Access the properties or methods of each Pipe object using the index i
-            Pipe pipe = pipes.get(i); // Get the Pipe object at index i
+//        for (int i = 0; i < pipes.size(); i += 2) {
+//            // Access the properties or methods of each Pipe object using the index i
+//            Pipe pipe = pipes.get(i); // Get the Pipe object at index i
+//            pipe.setPositionX(pipe.getPositionX() - 5);
+//            randomHeight = 250 + (int) (Math.random() * (450 - 250));
+//            //pipe.getPositionX()-5+ pipe.getWidth() <= 0
+//            if (pipe.getPositionX() - 5 + pipe.getWidth() <= 0) {
+//
+//                //randomHeight = 250 + (int) (Math.random() * (450 - 250));
+//                pipe.setHeight(randomHeight);
+//                pipe = pipes.get(i + 1);
+//
+//                //pipe.setPositionX(pipe.getPositionX() - 5);
+//
+//                // pipe.setPositionY(randomHeight + 200);
+//                // pipe.setHeight(800 - (randomHeight + 200));
+//            }
+//            pipe = pipes.get(i + 1);
+//            pipe.setPositionX(pipe.getPositionX() - 5);
+//
+//            if (pipe.getPositionX() - 5 + pipe.getWidth() <= 0) {
+//                pipe.setPositionY(randomHeight + 200);
+//                pipe.setHeight(800 - (randomHeight + 200));
+//            }
+//
+//
+//        }
 
-            if(pipe.getPositionX()+ pipe.getWidth() <= 0){
-
-                randomHeight = 250 + (int) (Math.random() * (450 - 250));
-                pipe.setHeight(randomHeight);
-                pipe = pipes.get(i + 1);
-                pipe.setPositionY(randomHeight + 200);
-                pipe.setHeight(800 - (randomHeight + 200));
-            }
-
-
-        }
 
         for (Pipe pipe : pipes) {
             pipe.updateS();
         }
 
+        for (int i = 0; i < pipes.size(); i += 2) {
+            Pipe pipe = pipes.get(i); // Get the Pipe object at index i
+
+            randomHeight = 250 + (int) (Math.random() * (450 - 250));
+            if (pipe.getPositionX() == 1000) {
+
+                pipe.setHeight(randomHeight);
+                pipe = pipes.get(i + 1);
+
+
+                pipe.setPositionY(randomHeight + 200);
+                pipe.setHeight(800 - (randomHeight + 200));
+
+            }
+        }
 
 
     }
