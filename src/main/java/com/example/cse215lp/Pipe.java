@@ -48,8 +48,8 @@ public class Pipe extends Sprite {
         // Update the position of the pipe (e.g., move it to the left)
         //positionX -= 1; // Adjust the speed
 
-        this.setPositionX(getPositionX() - 5);
-        if (this.getPositionX() - 5 + this.getWidth() <= 0) {
+        this.setPositionX(getPositionX() - 2.5);
+        if (this.getPositionX() - 2.5 + this.getWidth() <= 0) {
             this.setPositionX(1000);
 
         }

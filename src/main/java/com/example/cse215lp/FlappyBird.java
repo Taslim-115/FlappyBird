@@ -7,6 +7,8 @@ import p1.SceneManager;
 
 public class FlappyBird extends Application {
 
+
+
     public void start(Stage window) {
         //Initialise Scene Manager
         SceneManager sm = new SceneManager(window);
@@ -29,6 +31,11 @@ public class FlappyBird extends Application {
         }.start();
 
         window.show();
+    }
+
+    @Override
+    public void stop(){
+        System.out.println(Sprite.getTotalScore());
     }
 
     public static void main(String[] args) {

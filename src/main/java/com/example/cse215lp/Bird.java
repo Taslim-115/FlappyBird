@@ -19,7 +19,7 @@ public class Bird extends Sprite {
     public Bird(GraphicsContext gc) {
 
 
-        super(70, 200, 5, 3, 50, 45);
+        super(70, 200, 5, 1.0, 50, 45);
         //bird.setImage();
         // birdSprite.setPositionXY(positionX, positionY);
 

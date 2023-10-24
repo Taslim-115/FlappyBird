@@ -79,6 +79,8 @@ public class Play implements Updatable {
         bird.render(gc);
         pipe.render(pipes, gc);
         pipe.update(pipes);
+        bird.intersectSprite(pipes);
+        bird.updateTotalScore(pipes);
     }
 
     @Override

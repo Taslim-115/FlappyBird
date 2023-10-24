@@ -11,6 +11,8 @@ public class Sprite {
 
     private Image image;
     //private String filePath;
+    private static boolean isGameOver = false;
+    private static double totalScore = 0;
 
     private double positionX;
     private double positionY;
@@ -128,6 +130,10 @@ public class Sprite {
         gc.drawImage(image, positionX, positionY, 50, 45);
     }
 
+    public static double getTotalScore() {
+        return totalScore;
+    }
+
     public void renderP(GraphicsContext gc) {
         //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
         this.gc = gc;
@@ -151,6 +157,33 @@ public class Sprite {
     public boolean intersectSprite(Sprite s) {
         return s.getBoundary().intersects(this.getBoundary());
     }
+
+    public void intersectSprite(List<Pipe> pipes) {
+
+        //return s.getBoundary().intersects(this.getBoundary());
+        for (Pipe pipe : pipes) {
+            if (pipe.getBoundary().intersects(this.getBoundary())
+                    || this.getPositionY() + this.height >= 800
+                    || this.getPositionY() <= 0) {
+                System.out.println("Game Over");
+                isGameOver = true;
+            }
+        }
+    }
+
+    public void updateTotalScore(List<Pipe> pipes) {
+
+        if(!isGameOver){
+            for (Pipe pipe : pipes) {
+                if (pipe.getPositionX() == this.getPositionX()) {
+                   totalScore+=0.5;
+                   //break;
+                }
+            }
+        }
+
+    }
+
 
     public void addVelocity(double x, double y) {
         this.velocityX += x;
