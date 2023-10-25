@@ -3,6 +3,9 @@ package com.example.cse215lp;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.util.List;
 import java.util.Objects;
@@ -162,24 +165,28 @@ public class Sprite {
 
         //return s.getBoundary().intersects(this.getBoundary());
         for (Pipe pipe : pipes) {
-            if (pipe.getBoundary().intersects(this.getBoundary())
-                    || this.getPositionY() + this.height >= 800
-                    || this.getPositionY() <= 0) {
+            if (pipe.getBoundary().intersects(this.getBoundary()) || this.getPositionY() + this.height >= 800 || this.getPositionY() <= 0) {
                 System.out.println("Game Over");
                 isGameOver = true;
             }
         }
     }
 
-    public void updateTotalScore(List<Pipe> pipes) {
+    public void updateTotalScore(List<Pipe> pipes, GraphicsContext gc) {
 
-        if(!isGameOver){
+        if (!isGameOver) {
             for (Pipe pipe : pipes) {
                 if (pipe.getPositionX() == this.getPositionX()) {
-                   totalScore+=0.5;
-                   //break;
+                    totalScore += 0.5;
+                    //break;
                 }
             }
+            gc.setFill(Color.RED); // Set the fill color for the text
+            gc.setFont(Font.font("Arial", FontWeight.BOLD, 24)); // Set the font for the text
+
+// Draw the score on the screen at the specified position (e.g., x=20, y=40)
+            gc.fillText("Score: " + (int)totalScore, 500, 20);
+
         }
 
     }
