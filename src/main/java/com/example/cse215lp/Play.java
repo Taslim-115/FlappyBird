@@ -136,7 +136,7 @@ public class Play implements Updatable {
 //
 //            // Draw the score on the screen at the specified position (e.g., x=20, y=40)
 //            gc.fillText("" + (int)Sprite.getTotalScore(), 490, 450);
-            GameOverScreen.setGameOver(gc,gameOverImage, scoreImage);
+            GameOverScreen.setGameOver(gc,gameOverImage, scoreImage, root);
 
 //           // root.getChildren().add(playAgainButton);
 //            VBox root = new VBox();
