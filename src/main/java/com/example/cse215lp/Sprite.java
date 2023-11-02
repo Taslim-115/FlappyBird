@@ -172,6 +172,10 @@ public class Sprite {
         }
     }
 
+    public static boolean isIsGameOver() {
+        return isGameOver;
+    }
+
     public void updateTotalScore(List<Pipe> pipes, GraphicsContext gc) {
 
         if (!isGameOver) {
@@ -184,7 +188,7 @@ public class Sprite {
             gc.setFill(Color.RED); // Set the fill color for the text
             gc.setFont(Font.font("Arial", FontWeight.BOLD, 24)); // Set the font for the text
 
-// Draw the score on the screen at the specified position (e.g., x=20, y=40)
+            // Draw the score on the screen at the specified position (e.g., x=20, y=40)
             gc.fillText("Score: " + (int)totalScore, 500, 20);
 
         }

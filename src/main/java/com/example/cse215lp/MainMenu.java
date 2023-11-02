@@ -19,6 +19,8 @@ public class MainMenu implements Updatable {
     private GraphicsContext gc;
     private int width, height;
 
+
+
     public MainMenu(SceneManager sm) {
 
         this.width = sm.getWidth();
@@ -82,8 +84,8 @@ public class MainMenu implements Updatable {
         Button btnGuide = new Button("Guide");
         //width = 150;
         //height = 60;
-        btnGuide.setLayoutX((this.width - width) / 2);
-        btnGuide.setLayoutY((this.height - height) / 2 + (height + 30));
+        btnGuide.setLayoutX((double) (this.width - width) / 2);
+        btnGuide.setLayoutY((double) (this.height - height) / 2 + (height + 30));
 
         btnGuide.setMinWidth(width - 20);
         btnGuide.setMinHeight(height - 20);
