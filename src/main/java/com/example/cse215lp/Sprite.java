@@ -50,6 +50,15 @@ public class Sprite {
 
     }
 
+    public Sprite(double positionX, double positionY, double width, double height) {
+        this.positionX = initilaX = positionX;
+        this.positionY = initilaY = positionY;
+        this.width = initialWidth = width;
+        this.height = initialHeight = height;
+        // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+
+    }
+
     public double getInitialWidth() {
         return initialWidth;
     }
@@ -58,20 +67,15 @@ public class Sprite {
         return initialHeight;
     }
 
-    public Sprite(double positionX, double positionY, double width, double height) {
-        this.positionX = initilaX = positionX;
-        this.positionY = initilaY = positionY;
-        this.width = initialWidth = width;
-        this.height = initialHeight =  height;
-        // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
-
-    }
 
     public double getPositionX() {
         return positionX;
     }
-    public  double getInitilaX() {return  initilaX; }
-    public  void setInitilaX(double initilaX) { this.initilaX = initilaX; }
+
+    public double getInitilaX() {
+        return initilaX;
+    }
+
 
     public static void setIsGameOver(boolean isGameOver) {
         Sprite.isGameOver = isGameOver;
@@ -94,22 +98,15 @@ public class Sprite {
         this.height = height;
     }
 
-    public void setPositionXY(double positionX, double positionY) {
-        this.positionX = positionX;
-        this.positionY = positionY;
-    }
-
 
     public double getPositionY() {
         return positionY;
     }
-    public  double getInitilaY() { return  initilaY; }
-    public  void setInitilaY(double initilaY) { this.initilaY = initilaY; }
 
-
-    public double getVelocityX() {
-        return velocityX;
+    public double getInitilaY() {
+        return initilaY;
     }
+
 
     public double getVelocityY() {
         return velocityY;
@@ -119,26 +116,11 @@ public class Sprite {
         return width;
     }
 
-    public double getHeight() {
-        return height;
-    }
-
 
     public void setPositionY(double positionY) {
         this.positionY = positionY;
     }
 
-    public void setGc(GraphicsContext gc) {
-        this.gc = gc;
-    }
-
-
-    public void setImage(Image image) {
-        this.image = image;
-        this.width = image.getWidth();
-        this.height = image.getHeight();
-
-    }
 
     public void setImage(String filePath) {
         image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
@@ -150,16 +132,6 @@ public class Sprite {
         }
     }
 
-    public void reseizeImage(String filepath, int width, int height) {
-        Image toReturn = new Image(filepath, width, height, false, false);
-        setImage(toReturn);
-    }
-
-
-    public void render() {
-        //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
-        gc.drawImage(image, positionX, positionY, 50, 45);
-    }
 
     public void render(GraphicsContext gc) {
         //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
@@ -191,16 +163,13 @@ public class Sprite {
         return new Rectangle2D(positionX, positionY, width, height);
     }
 
-    public boolean intersectSprite(Sprite s) {
-        return s.getBoundary().intersects(this.getBoundary());
-    }
 
     public void intersectSprite(List<Pipe> pipes) {
 
         //return s.getBoundary().intersects(this.getBoundary());
         for (Pipe pipe : pipes) {
             if (pipe.getBoundary().intersects(this.getBoundary()) || this.getPositionY() + this.height >= 800 || this.getPositionY() <= 0) {
-                System.out.println("Game Over");
+                //System.out.println("Game Over");
                 isGameOver = true;
             }
         }
@@ -223,21 +192,11 @@ public class Sprite {
             gc.setFont(Font.font("Arial", FontWeight.BOLD, 24)); // Set the font for the text
 
             // Draw the score on the screen at the specified position (e.g., x=20, y=40)
-            gc.fillText("Score: " + (int)totalScore, 500, 20);
+            gc.fillText("Score: " + (int) totalScore, 500, 20);
 
         }
 
     }
 
-
-    public void addVelocity(double x, double y) {
-        this.velocityX += x;
-        this.velocityY += y;
-    }
-
-    public void update(double deltaTime) {
-        positionX += velocityX * deltaTime;
-        positionY += velocityY * deltaTime;
-    }
 
 }

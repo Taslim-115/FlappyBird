@@ -20,10 +20,6 @@ public class Pipe extends Sprite {
 
     }
 
-    public String getUpperPipePath() {
-        return upPipePath;
-    }
-
 
     public Pipe(double x, double y, double w, double h) {
 
@@ -34,16 +30,24 @@ public class Pipe extends Sprite {
 
     }
 
+    public void validate() throws OutOfScreen {
+        if (getPositionX() - 2.5 + getWidth() <= 0) {
+            setPositionX(1000);
 
-    public void updateS() {
+        }
+    }
+
+
+    public void updateS() throws OutOfScreen {
         // Update the position of the pipe (e.g., move it to the left)
         //positionX -= 1; // Adjust the speed
 
-        this.setPositionX(getPositionX() - 2.5);
-        if (this.getPositionX() - 2.5 + this.getWidth() <= 0) {
-            this.setPositionX(1000);
-
-        }
+        setPositionX(getPositionX() - 2.5);
+//        if (getPositionX() - 2.5 + getWidth() <= 0) {
+//            setPositionX(1000);
+//
+//        }
+        validate();
 
 
     }
@@ -54,7 +58,12 @@ public class Pipe extends Sprite {
 
 
         for (Pipe pipe : pipes) {
-            pipe.updateS();
+            try {
+                pipe.updateS();
+            } catch (OutOfScreen e) {
+                System.out.println("Out of screen : " + e);
+            }
+
         }
 
         for (int i = 0; i < pipes.size(); i += 2) {

@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -16,10 +15,7 @@ import java.io.*;
 public class GameOverScreen {
 
 
-    //    private Image gameOverImage;
-//    private Image scoreImage;
-    private static Scene scene;
-    private static StackPane root;
+;
 
     //private static Button playAgainButton;
     private static boolean flag = true;

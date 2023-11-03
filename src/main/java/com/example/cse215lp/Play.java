@@ -110,9 +110,6 @@ public class Play implements Updatable {
 
     }
 
-    public Image getBackgroundImage() {
-        return backgroundImage;
-    }
 
     @Override
     public void update() {
@@ -130,16 +127,16 @@ public class Play implements Updatable {
             bird.updateTotalScore(pipes, gc);
 
         } else {
-//           while(flag) {
-//
-//               try {
-//                   Thread.sleep(250);
-//               } catch (InterruptedException e) {
-//                   throw new RuntimeException(e);
-//               }
-//               flag = false;
-//           }
-            flag = false;
+           while(flag) {
+
+               try {
+                   Thread.sleep(250);
+               } catch (InterruptedException e) {
+                   throw new RuntimeException(e);
+               }
+               flag = false;
+           }
+            //flag = false;
             //bird.setPositionX(bird.getPositionX() +10);
             //flag = false;
             gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
@@ -153,9 +150,9 @@ public class Play implements Updatable {
     }
 
     @Override
-    public Scene getScene() {
+public Scene getScene() {
         return this.scene;
-    }
+        }
 
 
-}
+        }

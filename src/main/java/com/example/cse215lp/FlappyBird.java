@@ -34,7 +34,7 @@ public class FlappyBird extends Application {
 
     @Override
     public void stop() {
-        System.out.println(Sprite.getTotalScore());
+        //System.out.println(Sprite.getTotalScore());
     }
 
     public static void main(String[] args) {

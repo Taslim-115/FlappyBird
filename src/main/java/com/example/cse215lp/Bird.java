@@ -17,7 +17,7 @@ public class Bird extends Sprite {
     public Bird(GraphicsContext gc) {
 
 
-        super(70, 200, 5, 1.0, 50, 45);
+        super(70, 200, 6, 1.0, 50, 45);
 
 
     }

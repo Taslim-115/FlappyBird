@@ -65,24 +65,24 @@ public class MainMenu implements Updatable {
         btnPlay.getStyleClass().add("play-button");
 
 
-        //Guide Button
-        Button btnGuide = new Button("Guide");
-        //width = 150;
-        //height = 60;
-        btnGuide.setLayoutX((double) (this.width - width) / 2);
-        btnGuide.setLayoutY((double) (this.height - height) / 2 + (height + 30));
-
-        btnGuide.setMinWidth(width - 20);
-        btnGuide.setMinHeight(height - 20);
+//        //Guide Button
+//        Button btnGuide = new Button("Guide");
+//        //width = 150;
+//        //height = 60;
+//        btnGuide.setLayoutX((double) (this.width - width) / 2);
+//        btnGuide.setLayoutY((double) (this.height - height) / 2 + (height + 30));
+//
+//        btnGuide.setMinWidth(width - 20);
+//        btnGuide.setMinHeight(height - 20);
 
         ;
 
 
         // Apply the CSS class to the button
-        btnGuide.getStyleClass().add("play-button");
+       // btnGuide.getStyleClass().add("play-button");
 
 
-        root.getChildren().addAll(canvas, btnPlay, btnGuide);
+        root.getChildren().addAll(canvas, btnPlay);
 
     }
 
