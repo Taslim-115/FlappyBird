@@ -12,6 +12,8 @@ public class Bird extends Sprite {
     private String filePath = "/com/example/cse215lp/bird1.png";
 
 
+
+
     public String getFilePath() {
         return filePath;
     }
@@ -31,5 +33,12 @@ public class Bird extends Sprite {
 
     public void update() {
         this.setPositionY(this.getPositionY() + this.getVelocityY());
+    }
+
+    public void reset(){
+
+        this.setPositionX( this.getInitilaX() );
+        this.setPositionY( 200+150 );
+
     }
 }

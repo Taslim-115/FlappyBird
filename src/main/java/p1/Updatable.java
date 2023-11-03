@@ -7,4 +7,5 @@ public interface Updatable
 {
     void update();
     Scene getScene();
+
 }

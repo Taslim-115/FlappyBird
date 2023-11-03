@@ -18,11 +18,15 @@ public class Sprite {
     private static double totalScore = 0;
 
     private double positionX;
+    private double initilaX;
     private double positionY;
+    private double initilaY;
     private double velocityX;
     private double velocityY;
     private double width;
+    private double initialWidth;
     private double height;
+    private double initialHeight;
 
     private GraphicsContext gc;
 
@@ -36,8 +40,8 @@ public class Sprite {
     }
 
     public Sprite(double positionX, double positionY, double velocityX, double velocityY, double width, double height) {
-        this.positionX = positionX;
-        this.positionY = positionY;
+        this.positionX = initilaX = positionX;
+        this.positionY = initilaY = positionY;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
         this.width = width;
@@ -46,8 +50,35 @@ public class Sprite {
 
     }
 
+    public double getInitialWidth() {
+        return initialWidth;
+    }
+
+    public double getInitialHeight() {
+        return initialHeight;
+    }
+
+    public Sprite(double positionX, double positionY, double width, double height) {
+        this.positionX = initilaX = positionX;
+        this.positionY = initilaY = positionY;
+        this.width = initialWidth = width;
+        this.height = initialHeight =  height;
+        // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+
+    }
+
     public double getPositionX() {
         return positionX;
+    }
+    public  double getInitilaX() {return  initilaX; }
+    public  void setInitilaX(double initilaX) { this.initilaX = initilaX; }
+
+    public static void setIsGameOver(boolean isGameOver) {
+        Sprite.isGameOver = isGameOver;
+    }
+
+    public static void setTotalScore(double totalScore) {
+        Sprite.totalScore = totalScore;
     }
 
     public void setPositionX(double positionX) {
@@ -72,6 +103,9 @@ public class Sprite {
     public double getPositionY() {
         return positionY;
     }
+    public  double getInitilaY() { return  initilaY; }
+    public  void setInitilaY(double initilaY) { this.initilaY = initilaY; }
+
 
     public double getVelocityX() {
         return velocityX;

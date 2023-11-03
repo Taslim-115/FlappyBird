@@ -26,9 +26,13 @@ public class Pipe extends Sprite {
 
 
     public Pipe(double x, double y, double w, double h) {
-        this.setPositionXY(x, y);
-        this.setWidth(w);
-        this.setHeight(h);
+//        this.setPositionXY(x, y);
+//       this.setInitilaX(x);
+//       this.setInitilaY(y);
+//        this.setWidth(w);
+//        this.setHeight(h);
+
+        super(x, y, w, h);
     }
 
     public Pipe() {
@@ -112,5 +116,14 @@ public class Pipe extends Sprite {
         }
 
 
+    }
+
+    public  void reset(List<Pipe> pipes){
+        for (Pipe pipe:pipes) {
+            pipe.setPositionX(pipe.getInitilaX());
+            pipe.setPositionY(pipe.getInitilaY());
+            pipe.setHeight(pipe.getInitialHeight());
+            pipe.setWidth(pipe.getInitialWidth());
+        }
     }
 }

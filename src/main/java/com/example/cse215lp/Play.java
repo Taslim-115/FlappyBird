@@ -22,6 +22,8 @@ import java.util.Scanner;
 
 public class Play implements Updatable {
 
+    Button playAgainButton ;
+    Group root;
     private boolean flag = true;
     private Scene scene;
     private int width, height;
@@ -29,18 +31,9 @@ public class Play implements Updatable {
     private Image backgroundImage;
     private Image gameOverImage;
     private Image scoreImage;
-
-    public Image getBackgroundImage() {
-        return backgroundImage;
-    }
-
     private Bird bird;
     private Pipe pipe;
     private List<Pipe> pipes = new ArrayList<>();
-
-    Button playAgainButton ;
-    Group root;
-
     public Play(SceneManager sm) {
 
 
@@ -69,9 +62,14 @@ public class Play implements Updatable {
         // Bring the bird
         bird = new Bird(gc);
         bird.setImage(bird.getFilePath());
+
+
         scene.setOnMouseClicked(e -> {
             bird.setPositionY(bird.getPositionY() - 150);
         });
+
+
+
 
         pipes.add(new Pipe(1000, 0, 50, 350));
         pipes.add(new Pipe(1000, 550, 50, 250));
@@ -89,12 +87,49 @@ public class Play implements Updatable {
 
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
 
-        playAgainButton = new Button("PLAY AGAIN");
 
+        scene.getStylesheets().add(Objects.requireNonNull(GameOverScreen.class.getResource("styles.css")).toExternalForm());
+        playAgainButton = new Button("PLAY AGAIN");
+        playAgainButton.getStyleClass().add("play-button");
+        playAgainButton.setLayoutX(440);
+        playAgainButton.setLayoutY(565);
+
+        playAgainButton.setOnAction(event -> {
+
+            root.getChildren().remove(playAgainButton);
+            gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
+
+//            bird.setPositionX( bird.getInitilaX() );
+//            bird.setPositionY( 200+150 );
+            //bird.setHeight(bird.getHeight());
+           // bird.setWidth(bird.ge);
+            bird.reset();
+
+//
+//            for (Pipe pipe:pipes) {
+//               pipe.setPositionX(pipe.getInitilaX());
+//               pipe.setPositionY(pipe.getInitilaY());
+//               pipe.setHeight(pipe.getInitialHeight());
+//               pipe.setWidth(pipe.getInitialWidth());
+//            }
+
+            pipe.reset(pipes);
+
+            flag = !flag;
+            GameOverScreen.setFlag(true);
+            Sprite.setIsGameOver(false);
+            Sprite.setTotalScore(0);
+
+
+        });
 
         root.getChildren().add(canvas);
 
 
+    }
+
+    public Image getBackgroundImage() {
+        return backgroundImage;
     }
 
     @Override
@@ -114,35 +149,26 @@ public class Play implements Updatable {
             //gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
         }
        else {
-           while(flag) {
-
-               try {
-                   Thread.sleep(250);
-               } catch (InterruptedException e) {
-                   throw new RuntimeException(e);
-               }
-               flag = false;
-           }
+//           while(flag) {
+//
+//               try {
+//                   Thread.sleep(250);
+//               } catch (InterruptedException e) {
+//                   throw new RuntimeException(e);
+//               }
+//               flag = false;
+//           }
+            flag = false;
             //bird.setPositionX(bird.getPositionX() +10);
             //flag = false;
             gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
             pipe.render(pipes, gc);
             pipe.update(pipes);
-//            gc.drawImage(gameOverImage, 400, 175, 200, 100);
-//            gc.drawImage(scoreImage,375, 325, 250, 300);
-//
-//            gc.setFill(Color.ROSYBROWN);
-//            gc.setFont(Font.font("Arial", FontWeight.BOLD, 35)); // Set the font for the text
-//
-//            // Draw the score on the screen at the specified position (e.g., x=20, y=40)
-//            gc.fillText("" + (int)Sprite.getTotalScore(), 490, 450);
-            GameOverScreen.setGameOver(gc,gameOverImage, scoreImage, root);
 
-//           // root.getChildren().add(playAgainButton);
-//            VBox root = new VBox();
-//            Scene scene1 = new Scene(root);
-//              root.getChildren().add(playAgainButton);
+            GameOverScreen.setGameOver(gc,gameOverImage, scoreImage, root,scene, playAgainButton);
+
         }
+
     }
 
     @Override
