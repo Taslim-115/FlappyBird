@@ -6,23 +6,16 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import p1.SceneManager;
 import p1.Updatable;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class Play implements Updatable {
 
-    Button playAgainButton ;
+    Button playAgainButton;
     Group root;
     private boolean flag = true;
     private Scene scene;
@@ -34,6 +27,7 @@ public class Play implements Updatable {
     private Bird bird;
     private Pipe pipe;
     private List<Pipe> pipes = new ArrayList<>();
+
     public Play(SceneManager sm) {
 
 
@@ -42,7 +36,7 @@ public class Play implements Updatable {
 
         //Its all about canvas
 
-         root = new Group();
+        root = new Group();
         this.scene = new Scene(root);
 
         Canvas canvas = new Canvas(this.width, this.height);
@@ -69,8 +63,6 @@ public class Play implements Updatable {
         });
 
 
-
-
         pipes.add(new Pipe(1000, 0, 50, 350));
         pipes.add(new Pipe(1000, 550, 50, 250));
         pipes.add(new Pipe(1250, 0, 50, 350));
@@ -95,24 +87,14 @@ public class Play implements Updatable {
         playAgainButton.setLayoutY(565);
 
         playAgainButton.setOnAction(event -> {
+            //remove the playAgainButton
 
             root.getChildren().remove(playAgainButton);
+            //Repaint with backGround
             gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
 
-//            bird.setPositionX( bird.getInitilaX() );
-//            bird.setPositionY( 200+150 );
-            //bird.setHeight(bird.getHeight());
-           // bird.setWidth(bird.ge);
+            // Reset Bird and pipes position , height , width
             bird.reset();
-
-//
-//            for (Pipe pipe:pipes) {
-//               pipe.setPositionX(pipe.getInitilaX());
-//               pipe.setPositionY(pipe.getInitilaY());
-//               pipe.setHeight(pipe.getInitialHeight());
-//               pipe.setWidth(pipe.getInitialWidth());
-//            }
-
             pipe.reset(pipes);
 
             flag = !flag;
@@ -134,21 +116,20 @@ public class Play implements Updatable {
 
     @Override
     public void update() {
-        if(flag){
-        gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
+        if (flag) {
+            gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
         }
 
         if (!Sprite.isIsGameOver()) {
-           // gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
+
             bird.update();
             bird.render(gc);
             pipe.render(pipes, gc);
             pipe.update(pipes);
             bird.intersectSprite(pipes);
             bird.updateTotalScore(pipes, gc);
-            //gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
-        }
-       else {
+
+        } else {
 //           while(flag) {
 //
 //               try {
@@ -165,7 +146,7 @@ public class Play implements Updatable {
             pipe.render(pipes, gc);
             pipe.update(pipes);
 
-            GameOverScreen.setGameOver(gc,gameOverImage, scoreImage, root,scene, playAgainButton);
+            GameOverScreen.setGameOver(gc, gameOverImage, scoreImage, root, scene, playAgainButton);
 
         }
 

@@ -20,7 +20,6 @@ public class MainMenu implements Updatable {
     private int width, height;
 
 
-
     public MainMenu(SceneManager sm) {
 
         this.width = sm.getWidth();
@@ -52,31 +51,17 @@ public class MainMenu implements Updatable {
         btnPlay.setMinWidth(width - 20);
         btnPlay.setMinHeight(height - 20);
 
-//        btnPlay.setFont(Font.font(20));
-//        btnPlay.setStyle("-fx-background-color: #49fc03;");
-//        //btnPlay.setStyle("-fx-color: #49fc03;");
-//        btnPlay.setStyle("-fx-text-fill: white;");
-        // btnPlay.setStyle("-fx-font-size: 20; -fx-background-color: #49fc03; -fx-text-fill: white;");
-
 
         // set action on Play button
         btnPlay.setOnAction(e -> {
             Play play = new Play(sm);
             sm.setScene(play);
         });
-//
-//        // Hover effect
-//        btnPlay.setOnMouseEntered((MouseEvent e) -> {
-//            btnPlay.setStyle("-fx-background-color: #55b52f;");
-//        });
-//
-//        btnPlay.setOnMouseExited((MouseEvent e) -> {
-//            btnPlay.setStyle("-fx-background-color: #49fc03;");
-//        });
+
         // Load the CSS file
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
 
-// Apply the CSS class to the button
+       // Apply the CSS class to the button
         btnPlay.getStyleClass().add("play-button");
 
 
@@ -90,27 +75,10 @@ public class MainMenu implements Updatable {
         btnGuide.setMinWidth(width - 20);
         btnGuide.setMinHeight(height - 20);
 
-//        btnGuide.setFont(Font.font(20));
-//        btnGuide.setStyle("-fx-background-color: #49fc03;");
-//
-//        // set action on Guide button
-//        btnGuide.setOnAction(e -> {
-//
-//        });
-//
-//        // Hover effect
-//        btnGuide.setOnMouseEntered((MouseEvent e) -> {
-//            btnGuide.setStyle("-fx-background-color: #55b52f;");
-//        });
-//
-//        btnGuide.setOnMouseExited((MouseEvent e) -> {
-//            btnGuide.setStyle("-fx-background-color: #49fc03;");
-//        });
+        ;
 
-        // Load the CSS file
-        //scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
-// Apply the CSS class to the button
+        // Apply the CSS class to the button
         btnGuide.getStyleClass().add("play-button");
 
 

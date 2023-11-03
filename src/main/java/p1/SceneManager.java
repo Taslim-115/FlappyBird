@@ -40,7 +40,7 @@ public class SceneManager {
 
     }
 
-    public void setScene(Updatable scene) { // here using Updatable interface to get scene cause sm doesnot has its own scene.
+    public void setScene(Updatable scene) { // here using Updatable interface to get scene cause sm does not has its own scene.
         this.scene = scene;
         this.window.setScene(scene.getScene()); //here we will get scene form the class that will implement Updatable interface.
 
