@@ -52,7 +52,6 @@ public class GameOverScreen {
     }
 
     public static int getBestScore() {
-        int score;
         int currentScore = (int) Sprite.getTotalScore();
 
 

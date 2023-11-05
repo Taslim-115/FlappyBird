@@ -27,7 +27,7 @@ public class Bird extends Sprite {
 
     public void reset() {
 
-        this.setPositionX(this.getInitilaX());
+        this.setPositionX(this.getInitialX());
         this.setPositionY(200 + 150);
 
     }

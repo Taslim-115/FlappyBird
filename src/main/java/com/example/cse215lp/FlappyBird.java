@@ -7,7 +7,11 @@ import p1.SceneManager;
 
 public class FlappyBird extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
 
+    @Override
     public void start(Stage window) {
         //Initialise Scene Manager
         SceneManager sm = new SceneManager(window);
@@ -19,7 +23,6 @@ public class FlappyBird extends Application {
 
         //set scene to MainMenu
         sm.setScene(mainMenu);
-
 
         // Game Loop
         new AnimationTimer() {
@@ -37,7 +40,4 @@ public class FlappyBird extends Application {
         //System.out.println(Sprite.getTotalScore());
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

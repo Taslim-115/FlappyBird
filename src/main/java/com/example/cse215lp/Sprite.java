@@ -12,22 +12,33 @@ import java.util.Objects;
 
 public class Sprite {
 
-    private Image image;
     //private String filePath;
     private static boolean isGameOver = false;
     private static double totalScore = 0;
+    public static void setIsGameOver(boolean isGameOver) {
+        Sprite.isGameOver = isGameOver;
+    }
+    public static void setTotalScore(double totalScore) {
+        Sprite.totalScore = totalScore;
+    }
+    public static double getTotalScore() {
+        return totalScore;
+    }
+    public static boolean isIsGameOver() {
+        return isGameOver;
+    }
+    private Image image;
 
     private double positionX;
-    private double initilaX;
+    private double initialX;
     private double positionY;
-    private double initilaY;
+    private double initialY;
     private double velocityX;
     private double velocityY;
     private double width;
     private double initialWidth;
     private double height;
     private double initialHeight;
-
     private GraphicsContext gc;
 
 
@@ -40,22 +51,22 @@ public class Sprite {
     }
 
     public Sprite(double positionX, double positionY, double velocityX, double velocityY, double width, double height) {
-        this.positionX = initilaX = positionX;
-        this.positionY = initilaY = positionY;
+        this.positionX = initialX = positionX;
+        this.positionY = initialY = positionY;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
         this.width = width;
         this.height = height;
-        // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+
 
     }
 
     public Sprite(double positionX, double positionY, double width, double height) {
-        this.positionX = initilaX = positionX;
-        this.positionY = initilaY = positionY;
+        this.positionX = initialX = positionX;
+        this.positionY = initialY = positionY;
         this.width = initialWidth = width;
         this.height = initialHeight = height;
-        // this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+
 
     }
 
@@ -72,18 +83,11 @@ public class Sprite {
         return positionX;
     }
 
-    public double getInitilaX() {
-        return initilaX;
+    public double getInitialX() {
+        return initialX;
     }
 
 
-    public static void setIsGameOver(boolean isGameOver) {
-        Sprite.isGameOver = isGameOver;
-    }
-
-    public static void setTotalScore(double totalScore) {
-        Sprite.totalScore = totalScore;
-    }
 
     public void setPositionX(double positionX) {
         this.positionX = positionX;
@@ -103,8 +107,8 @@ public class Sprite {
         return positionY;
     }
 
-    public double getInitilaY() {
-        return initilaY;
+    public double getInitialY() {
+        return initialY;
     }
 
 
@@ -139,9 +143,6 @@ public class Sprite {
         gc.drawImage(image, positionX, positionY, 50, 45);
     }
 
-    public static double getTotalScore() {
-        return totalScore;
-    }
 
     public void renderP(GraphicsContext gc) {
         //image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
@@ -175,9 +176,6 @@ public class Sprite {
         }
     }
 
-    public static boolean isIsGameOver() {
-        return isGameOver;
-    }
 
     public void updateTotalScore(List<Pipe> pipes, GraphicsContext gc) {
 

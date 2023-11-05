@@ -12,14 +12,11 @@ public class Pipe extends Sprite {
     public String getPipeFilePath() {
         String filePath = isFaceUp ? downPipePath : upPipePath;
 
-
         isFaceUp = !(isFaceUp);
 
         return filePath;
 
-
     }
-
 
     public Pipe(double x, double y, double w, double h) {
 
@@ -30,7 +27,6 @@ public class Pipe extends Sprite {
 
     }
 
-
     public void backToScreen() throws OutOfScreen {
 
         if (getPositionX() - 2.5 + getWidth() <= 0) {
@@ -38,10 +34,7 @@ public class Pipe extends Sprite {
 
         }
 
-
-
     }
-
 
     public void updateS() throws OutOfScreen {
         // Update the position of the pipe (e.g., move it to the left)
@@ -54,7 +47,7 @@ public class Pipe extends Sprite {
 //        }
         try {
             backToScreen();
-        }catch (OutOfScreen e){
+        } catch (OutOfScreen e) {
             System.out.println("OUt of Screen : " + e);
         }
 
@@ -63,7 +56,6 @@ public class Pipe extends Sprite {
     public void update(List<Pipe> pipes) {
         // Update the position of all pipes
         int randomHeight;
-
 
         for (Pipe pipe : pipes) {
             try {
@@ -83,20 +75,18 @@ public class Pipe extends Sprite {
                 pipe.setHeight(randomHeight);
                 pipe = pipes.get(i + 1);
 
-
                 pipe.setPositionY(randomHeight + 200);
                 pipe.setHeight(800 - (randomHeight + 200));
 
             }
         }
 
-
     }
 
     public void reset(List<Pipe> pipes) {
         for (Pipe pipe : pipes) {
-            pipe.setPositionX(pipe.getInitilaX());
-            pipe.setPositionY(pipe.getInitilaY());
+            pipe.setPositionX(pipe.getInitialX());
+            pipe.setPositionY(pipe.getInitialY());
             pipe.setHeight(pipe.getInitialHeight());
             pipe.setWidth(pipe.getInitialWidth());
         }

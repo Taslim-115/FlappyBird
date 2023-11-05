@@ -1,5 +1,8 @@
 package com.example.cse215lp;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -8,10 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import p1.SceneManager;
 import p1.Updatable;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 
 public class Play implements Updatable {
