@@ -30,11 +30,16 @@ public class Pipe extends Sprite {
 
     }
 
-    public void validate() throws OutOfScreen {
+
+    public void backToScreen() throws OutOfScreen {
+
         if (getPositionX() - 2.5 + getWidth() <= 0) {
             setPositionX(1000);
 
         }
+
+
+
     }
 
 
@@ -47,8 +52,11 @@ public class Pipe extends Sprite {
 //            setPositionX(1000);
 //
 //        }
-        validate();
-
+        try {
+            backToScreen();
+        }catch (OutOfScreen e){
+            System.out.println("OUt of Screen : " + e);
+        }
 
     }
 

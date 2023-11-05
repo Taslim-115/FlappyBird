@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import p1.SceneManager;
 import p1.Updatable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -48,10 +49,6 @@ public class Play implements Updatable {
         gameOverImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/cse215lp/game_over.png")));
         scoreImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/cse215lp/score.png")));
 
-        //Draw the backgroundImage on the canvas
-
-
-        // gc.drawImage(backgroundImage, 0, 0, this.width, this.height);
 
         // Bring the bird
         bird = new Bird(gc);
@@ -127,15 +124,15 @@ public class Play implements Updatable {
             bird.updateTotalScore(pipes, gc);
 
         } else {
-           while(flag) {
+            while (flag) {
 
-               try {
-                   Thread.sleep(250);
-               } catch (InterruptedException e) {
-                   throw new RuntimeException(e);
-               }
-               flag = false;
-           }
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                flag = false;
+            }
             //flag = false;
             //bird.setPositionX(bird.getPositionX() +10);
             //flag = false;
@@ -150,9 +147,9 @@ public class Play implements Updatable {
     }
 
     @Override
-public Scene getScene() {
+    public Scene getScene() {
         return this.scene;
-        }
+    }
 
 
-        }
+}

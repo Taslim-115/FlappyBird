@@ -6,8 +6,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Font;
 import p1.SceneManager;
 import p1.Updatable;
 
@@ -63,24 +61,6 @@ public class MainMenu implements Updatable {
 
        // Apply the CSS class to the button
         btnPlay.getStyleClass().add("play-button");
-
-
-//        //Guide Button
-//        Button btnGuide = new Button("Guide");
-//        //width = 150;
-//        //height = 60;
-//        btnGuide.setLayoutX((double) (this.width - width) / 2);
-//        btnGuide.setLayoutY((double) (this.height - height) / 2 + (height + 30));
-//
-//        btnGuide.setMinWidth(width - 20);
-//        btnGuide.setMinHeight(height - 20);
-
-        ;
-
-
-        // Apply the CSS class to the button
-       // btnGuide.getStyleClass().add("play-button");
-
 
         root.getChildren().addAll(canvas, btnPlay);
 

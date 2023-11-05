@@ -1,8 +1,8 @@
 package com.example.cse215lp;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.animation.AnimationTimer;
 import p1.SceneManager;
 
 public class FlappyBird extends Application {

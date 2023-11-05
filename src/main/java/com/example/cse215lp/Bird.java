@@ -5,8 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class Bird extends Sprite {
 
-    //private Sprite birdSprite;
-    // private Sprite birdSprite;
+
     private String filePath = "/com/example/cse215lp/bird1.png";
 
 
